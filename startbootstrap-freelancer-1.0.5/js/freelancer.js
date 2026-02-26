@@ -28,10 +28,19 @@ $(function() {
 
 // Highlight the top nav as scrolling occurs
 $('body').scrollspy({
-    target: '.navbar-fixed-top'
-})
+    target: '.fixed-top'
+});
 
 // Closes the Responsive Menu on Menu Item Click
-$('.navbar-collapse ul li a').click(function() {
-    $('.navbar-toggle:visible').click();
+$('.navbar-nav li a').click(function() {
+    $('.navbar-toggler:visible').click();
+});
+
+// Navbar shrink on scroll (replaces cbpAnimatedHeader.js)
+$(window).scroll(function() {
+    if ($(this).scrollTop() > 100) {
+        $('.fixed-top').addClass('navbar-shrink');
+    } else {
+        $('.fixed-top').removeClass('navbar-shrink');
+    }
 });
